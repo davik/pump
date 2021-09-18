@@ -1,0 +1,113 @@
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+        <div class="input-group mb-3 col-md-6">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="voucherType">Voucher Type</label>
+          </div>
+          <select class="custom-select" id="voucherType" onchange="getVoucherForm();">
+            {{#voucherType}}
+                <option val="{{.}}">{{.}}</option>
+            {{/voucherType}}
+          </select>
+        </div>
+        <div class="input-group mb-3 col-md-6">
+          <div class="input-group-prepend">
+            <label class="input-group-text" for="transactionDate">Date</label>
+          </div>
+          <input type="date" class="form-control" id="transactionDate">
+        </div>
+        </div>
+        <form id="formPurchase">
+          <div class="form-row" >
+            <div class="form-group col-md-3 product">
+              <div class="input-group-prepend">
+                <label
+                 for="product">Product</label>
+              </div>
+              <select class="fstdropdown-select" id="product">
+                {{#products}}
+                <option value="{{id}}">{{name}}({{manufacturer}})</option>
+                {{/products}}
+              </select>
+            </div>
+            <div class="form-group col-md-3 warehouse">
+              <div class="input-group-prepend">
+                <label
+                 for="warehouse">Warehouse</label>
+              </div>
+              <select class="fstdropdown-select" id="warehouse">
+                {{#warehouses}}
+                <option value="{{id}}">{{name}}</option>
+                {{/warehouses}}
+              </select>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="unit">Unit</label>
+              <input type="text" class="form-control" id="unit" value="Bags" readonly>
+            </div>
+            <div class="form-group col-md-3">
+              <label for="transactionInfo">Transaction Ref</label>
+              <input type="text" class="form-control clearit" id="transactionInfo" placeholder="Cheque Number/ Invoice Number">
+            </div>
+            </div>
+            <div class="form-row">
+            <div class="form-group col-md-3">
+              <label for="quantity">Quantity</label>
+              <input type="text" class="form-control price clearit" id="quantity" placeholder="0.00">
+            </div>
+            <div class="form-group col-md-3">
+              <label for="rate">Rate</label>
+              <input type="text" class="form-control price clearit" id="rate" placeholder="0.00">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="value">Value</label>
+              <input type="text" class="form-control clearit" id="value" placeholder="0.00" readonly>
+            </div>
+          </div>
+          <div class="form-row" >
+            
+          </div>
+        </form>
+        <form class = "d-none" id="formPayment">
+          <div class="form-row" >
+            <div class="form-group col-md-4">
+              <label for="mode">Mode</label>
+              <select id="mode" class="form-control">
+                <option>Cash</option>
+                <option>DD</option>
+                <option>Cheque</option>
+                <option>Net Banking</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="transactionId">Transaction ID</label>
+              <input type="text" class="form-control clearit" id="transactionId" placeholder="Cheque Number/ Invoice Number">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="amount">Amount</label>
+              <input type="text" class="form-control clearit" id="amount" placeholder="0.00">
+            </div>
+          </div>
+        </form>
+        <div id="msg" class="py-4"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeModal">Close</button>
+        <button type="button" class="btn btn-primary" id="submitVoucher">Submit</button>
+        <div id="voucherId" class="d-none"></div>
+      </div>
+    </div>
+  </div>
+</div>

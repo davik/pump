@@ -1,0 +1,68 @@
+{{>layout/header}}
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				{{>layout/navbar}}
+			</div>
+			<div class="row">
+				{{>layout/sidebar}}
+				
+				<!-- responsive equal width cols, can be sm, md, lg, or xl -->
+			<div class="col-md-10">
+				<div class="row">
+				<div class="col-md-5">
+					<div class="card">
+						<h5 class="card-header">
+							Daily Summary : Total Purchase
+						</h5>
+						<div class="card-body">
+							&#x20b9; {{totalPurchase}}
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="card">
+						<h5 class="card-header">
+							Daily Summary : Total Payment
+						</h5>
+						<div class="card-body">
+							&#x20b9; {{totalPayment}}
+						</div>
+						
+					</div>
+				</div>
+				</div>
+				<div class="row pt-3">
+				<div class="col-md-5">
+					<div class="card">
+						<h5 class="card-header">
+							Daily Summary : Total Sale
+						</h5>
+						<div class="card-body">
+							&#x20b9; {{totalSales}}
+						</div>
+						
+					</div>
+				</div>
+				<div class="col-md-5">
+					<div class="card">
+						<h5 class="card-header">
+							Daily Summary : Total Receipt
+						</h5>
+						<div class="card-body">
+							&#x20b9; {{totalReceipt}}
+						</div>
+						
+					</div>
+				</div>
+				</div>
+			</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+</body>
+{{>layout/footer}}

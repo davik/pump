@@ -1,0 +1,30 @@
+{{#alert}}
+<div class="{{alert}}" role="alert">
+	{{result}}
+</div>
+{{/alert}}
+{{#product}}
+<div class="card my-4">
+	<h5 class="card-header">{{name}}({{manufacturer}})</h5>
+</div>
+{{/product}}
+<table class="table table-striped">
+	<tr>
+		<th>Date</th>
+		<th>Voucher Type</th>
+		<th>Account</th>
+		<th>Warehouse</th>
+		<th>Quantity</th>
+		<th>Unit</th>
+	</tr>
+	{{#vouchers}}
+	<tr class="data-row">
+		<td class="convertTime">{{transactionDate}}</td>
+		<td class="vType">{{voucherType}}</td>
+		<td>{{vendorName}}</td>
+		<td>{{warehouseName}}</td>
+		<td>{{quantity}}</td>
+		<td>{{unit}}</td>
+	</tr>
+	{{/vouchers}}
+</table>

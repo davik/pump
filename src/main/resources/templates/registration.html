@@ -1,0 +1,101 @@
+	{{>layout/header}}
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<div class="row">
+					{{>layout/navbar}}
+				</div>
+				<div class="row">
+					{{>layout/sidebar}}
+					<div class="col-md-10">
+						<nav>
+							<div class="nav nav-tabs" id="nav-tab" role="tablist">
+								<a class="nav-item nav-link active" id="nav-acc-tab" data-toggle="tab" href="#nav-acc" role="tab" aria-controls="nav-acc" aria-selected="true">Add Account</a>
+								<a class="nav-item nav-link" id="nav-product-tab" data-toggle="tab" href="#nav-product" role="tab" aria-controls="nav-product" aria-selected="false">Add Product</a>
+								<a class="nav-item nav-link" id="nav-warehouse-tab" data-toggle="tab" href="#nav-warehouse" role="tab" aria-controls="nav-warehouse" aria-selected="false">Add Warehouse</a>
+							</div>
+						</nav>
+						<div class="tab-content" id="nav-tabContent">
+							<div class="tab-pane fade show active" id="nav-acc" role="tabpanel" aria-labelledby="nav-acc-tab">
+								<legend class="pt-4">Account Registration Form</legend>
+								<form id="accountRegForm">
+									<div class="form-group">
+										<label for="name">Name*</label>
+										<input type="text" class="form-control clearit" id="name">
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-4">
+											<label for="mobile">Mobile Number*</label>
+											<input type="text" class="form-control clearit" id="mobile">
+										</div>
+										<div class="form-group col-md-4">
+											<label for="email">Email Address</label>
+											<input type="email" class="form-control clearit" id="email" placeholder="username@domain">
+										</div>
+										<div class="form-group col-md-4">
+											<label for="aadhaar">Aadhaar</label>
+											<input type="text" class="form-control clearit" id="aadhaar">
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="name">Opening Balance</label>
+										<input type="text" class="form-control clearit" id="openingBalance">
+									</div>
+									<div class="form-group">
+										<label for="address1">Address</label>
+										<textarea class="form-control clearit" id="address1"></textarea>
+									</div>
+									<button type="submit" class="btn btn-primary" id="button">Submit</button>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="nav-product" role="tabpanel" aria-labelledby="nav-product-tab">
+								<legend class="pt-4">Product Registration Form</legend>
+								<form id="productRegForm">
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="pdName">Name*</label>
+											<input type="text" class="form-control clearit" id="pdName">
+										</div>
+										<div class="form-group col-md-6">
+											<label for="manufacturer">Manufacturer*</label>
+											<input type="text" class="form-control clearit" id="manufacturer">
+										</div>
+									</div>
+									{{#warehouses}}
+									<div class="form-row">
+										<div class="form-group col-md-6">
+											<label for="stock{{name}}">{{name}} Warehouse</label>
+											<input type="number" class="form-control clearit stock" id="stock{{name}}" placeholder="Opening Stock">
+										</div>
+									</div>
+									{{/warehouses}}
+									{{^warehouses}}
+									<h3>Please add warehouses!</h3>
+									{{/warehouses}}
+									<button type="submit" class="btn btn-primary" id="pdButton">Submit</button>
+								</form>
+							</div>
+							<div class="tab-pane fade" id="nav-warehouse" role="tabpanel" aria-labelledby="nav-warehouse-tab">
+								<legend class="pt-4">Warehouse Registration Form</legend>
+								<form id="warehouseRegForm">
+									<div class="form-group">
+										<label for="whName">Name*</label>
+										<input type="text" class="form-control clearit" id="whName">
+									</div>
+									<div class="form-group">
+										<label for="location">Location*</label>
+										<input type="text" class="form-control clearit" id="location">
+									</div>
+									<button type="submit" class="btn btn-primary" id="whButton">Submit</button>
+								</form>
+							</div>
+						</div>
+						<div id="msg" class="py-4">
+						</div>
+					</div>	
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
+	</body>
+	{{>layout/footer}}

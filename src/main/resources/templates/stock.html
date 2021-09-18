@@ -1,0 +1,71 @@
+{{>layout/header}}
+<body>
+	<div class="wrapper">
+		<div class="container">
+			<div class="row">
+				{{>layout/navbar}}
+			</div>
+			<div class="row">
+				{{>layout/sidebar}}
+				
+				<!-- responsive equal width cols, can be sm, md, lg, or xl -->
+				
+				<div class="col-md-10">
+					<nav>
+						<div class="nav nav-tabs" id="nav-tab" role="tablist">
+							<a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Stock Report</a>
+							<a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Product Details</a>
+						</div>
+					</nav>
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+							<div class="col-md-5 pb-4 pt-4">
+								<div class="input-group">
+									<input type="text" class="form-control" placeholder="Search.." id="studentSearch">
+								</div>
+							</div>
+							<table class="table table-striped">
+								<thead>
+									<tr>
+										<th>Id</th>
+										<th>Name</th>
+										{{#warehouses}}
+										<th>{{name}}</th>
+										{{/warehouses}}
+									</tr>
+								</thead>
+								<tbody id ="studentTable">
+									{{#stocks}}
+									<tr>
+										<td><a href="#" id="{{productId}}" onclick="fetchProductDetail(this.id);">{{productId}}</a></td>
+										<td>{{productName}}</td>
+										{{#currentStocks}}
+										<td>{{.}}</td>
+										{{/currentStocks}}
+									</tr>
+									{{/stocks}}
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+							<div class="col-md-5 pt-4">
+								<div class="input-group d-none">
+									<input type="text" class="form-control" placeholder="Product Id" id="id">
+									<span class="input-group-btn">
+										<button class="btn btn-secondary" type="button" id="productIdSearch">Go!</button>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-10" id="stockDetail"  class="py-4">
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	</div>
+	<!-- /.container -->
+</body>
+{{>layout/footer}}
